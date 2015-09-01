@@ -667,7 +667,7 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
 
     self.acceptableContentTypes = [[NSSet alloc] initWithObjects:@"image/tiff", @"image/jpeg", @"image/gif", @"image/png", @"image/ico", @"image/x-icon", @"image/bmp", @"image/x-bmp", @"image/x-xbitmap", @"image/x-win-bitmap", nil];
 
-#if TARGET_OS_IOS
+#if TARGET_OS_IPHONE && (!defined(TARGET_OS_IOS) || TARGET_OS_IOS)
     self.imageScale = [[UIScreen mainScreen] scale];
     self.automaticallyInflatesResponseImage = YES;
 #elif  TARGET_OS_WATCH
